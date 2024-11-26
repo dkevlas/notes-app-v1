@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import AccountModel from '../models/Account.model.js';
 import { CreateToken } from '../libs/CreateToken.js';
+import { ErrorUnknown } from '../libs/ErrorUnknown.js';
 
 class Login {
     async authAccount(req, res){
@@ -12,7 +13,7 @@ class Login {
                     success: false,
                     origin: "server",
                     field: "email",
-                    message: "El correo no existe"
+                    message: "No hay cuenta con ese correo"
                 });
             }
             const passwordMatch = await bcrypt.compare(password, userFound.password)
@@ -30,7 +31,7 @@ class Login {
             const token = CreateToken({id: userFound._id, username: userFound.username})
             if(!token) return res.status(500).json({
                 origin: "unknown",
-                message: "Error al generar el token"
+                message: "No se pudo generar el token"
             });
             res.cookie('token', token, {
                 sameSite: "none",
@@ -38,15 +39,12 @@ class Login {
             })
             res.json({
                 success: true,
-                message : "Iniciaste sesión exitosamente",
+                success_message: "Inicio de sesión exitoso",
                 user: resUser,
                 token: token
             });
         } catch(err){
-            res.status(500).json({
-                success: false,
-                errors: err.message
-            });
+            ErrorUnknown(err, res)
         };
     };
 };

@@ -1,3 +1,4 @@
+import { ErrorUnknown } from "../libs/ErrorUnknown.js";
 import AccountModel from "../models/Account.model.js";
 import bcrypt from 'bcrypt';
 
@@ -15,7 +16,7 @@ class Register {
                         success: false,
                         origin: "server",
                         field: "username" ,
-                        message: "Usuario ya en uso, use otro por favor"
+                        message: "Este usuario ya está registrado"
                     });
                 }
                 if(userFound.email === email.toLowerCase()){
@@ -23,7 +24,7 @@ class Register {
                         success: false,
                         origin: "server",
                         field: "email", 
-                        message: "Correo ya en uso, use otro por favor"
+                        message: "Este correo ya está registrador"
                     });
                 };
             };
@@ -39,13 +40,10 @@ class Register {
             delete showUser.password
             res.status(201).json({
                 success: true,
-                success_message: "¡Tu cuenta ha sido creada con éxito! Ya puedes iniciar sesión.",
+                success_message: "¡Registro exitoso! Inicia sesión para continuar.",
             });
         } catch(err){
-            res.status(500).json({
-                success: false,
-                errors: err.message
-            });
+            ErrorUnknown(err, res)
         };
     };
 };
