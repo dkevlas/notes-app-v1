@@ -11,6 +11,8 @@ import AccountRoutes from './routes/Accounts.routes.js';
 import RegisterRoutes from './routes/Register.routes.js';
 import LoginRoutes from './routes/Login.routes.js';
 import TasksRoutes from './routes/Tasks.routes.js';
+import { verifyToken } from './middlewares/verifyToken.js';
+import { notFound } from './middlewares/notFound.js';
 
 const app = express();
 
@@ -28,8 +30,9 @@ app.use(morgan('dev'));
 app.use('/api/account', AccountRoutes);
 app.use('/api/register', RegisterRoutes);
 app.use('/api/login', LoginRoutes);
-app.use('/api/tasks', TasksRoutes);
+app.use('/api/tasks', verifyToken, TasksRoutes);
 
+app.use(notFound)
 app.use(handlerError);
 
 export default app;
