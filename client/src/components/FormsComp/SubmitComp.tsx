@@ -1,10 +1,7 @@
 import React from 'react'
+import { SubmitProps } from '../../interfaces/auth/SubmitProps'
 
-interface SubmitPros {
-    disabled?: boolean,
-    action?: string
-}
-export const SubmitComp: React.FC<SubmitPros> = ({
+export const SubmitComp: React.FC<SubmitProps> = ({
     disabled, action
 }) => {
 

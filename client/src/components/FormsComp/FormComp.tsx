@@ -1,13 +1,5 @@
-import React, { ReactNode } from 'react'
-import { FieldValues, SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
-import { LoginData } from '../../templates/LoginTemplate'
-
-interface FormCompProps {
-    children: ReactNode,
-    stylesForm?: string,
-    handleSubmit: UseFormHandleSubmit<FieldValues, undefined>,
-    submit: SubmitHandler<LoginData | any>
-}
+import React from 'react'
+import { FormCompProps } from '../../interfaces/auth/FormCompProps'
 
 export const FormComp: React.FC<FormCompProps> = ({
     children, stylesForm, handleSubmit, submit
@@ -16,11 +8,9 @@ export const FormComp: React.FC<FormCompProps> = ({
         <form
             autoComplete='on'
             onSubmit={handleSubmit(submit)}
-            className={
-                `${stylesForm}
-                
-                `
-            }
+            className={`
+                ${stylesForm}
+            `}
         >
             {children}
         </form>

@@ -1,9 +1,5 @@
 import React from 'react'
-
-interface SpanErrorsProps {
-    errClient?: string,
-    errServer?: string
-}
+import { SpanErrorsProps } from '../../interfaces/auth/SpanErrorsProps'
 
 export const SpanMessageError: React.FC<SpanErrorsProps> = ({
     errClient, errServer

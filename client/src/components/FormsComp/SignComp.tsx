@@ -1,12 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { SignProps } from '../../interfaces/auth/SignProps'
 
-interface SignProps {
-    route: string,
-    textLink?: string,
-    showText?: string,
-    onClick?: React.MouseEventHandler<HTMLAnchorElement>
-}
 export const SignComp: React.FC<SignProps> = ({
     route, showText, textLink, onClick
 }) => {

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { ResponseData } from '../../context/AuthContext'
+import { ResponseData } from '../../interfaces/context/ResponseData'
+import { MessageProps } from '../../interfaces/auth/MessageProps'
 
-interface Message {
-    typeMessage?: ResponseData,
-}
-export const ModalMessage: React.FC<Message> = ({
+export const ModalMessage: React.FC<MessageProps> = ({
     typeMessage
 }) => {
     const [ messageModal, setMessageModal ] = useState<ResponseData>({})
