@@ -6,11 +6,8 @@ import { SubmitComp } from '../components/FormsComp/SubmitComp'
 import { useAuthHook } from '../hook/AuthHook'
 import { ModalMessage } from '../components/FormsComp/ModalMessage'
 import { LoadRotate } from '../components/Othres/LoadRotate'
+import { LoginData } from '../interfaces/auth/LoginData'
 
-export interface LoginData {
-    email: string,
-    password: string
-}
 export const LoginTemplate: React.FC = () => {
 
     const { register, handleSubmit, formState: {errors, isValid} } = useForm<LoginData>({mode: 'onChange'})
