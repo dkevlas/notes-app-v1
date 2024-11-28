@@ -12,4 +12,5 @@ export interface TasksContextValues {
     dataNote?: TaskData,
     setDataNote?: React.Dispatch<React.SetStateAction<TaskData>>,
     changeDataNote?: (title: string, description: string) => void,
+    response?: any
 }

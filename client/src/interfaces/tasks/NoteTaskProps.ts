@@ -4,5 +4,6 @@ export interface NoteTaskProps{
     value?: string,
     styles?: string,
     register?: any,
-    name?: string
+    name?: string,
+    errDescription?: any
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { SpanMessageError } from './SpanMessageError'
+import { SpanMessageError } from '../OthersComponents/SpanMessageError'
 import { InputProps } from '../../interfaces/auth/InputProps'
 import { ResponseData } from '../../interfaces/context/ResponseData'
 import { HandlerMessageErrors } from '../../utils/HandlerMessageErrors'

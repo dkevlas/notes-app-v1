@@ -4,4 +4,7 @@ export interface NotesListProps {
     isSelect?: boolean,
     deleteEvent?: any,
     updateEvent?: any,
+    styles?: string,
+    isNoteDelete?: boolean | null,
+    errSpan?: string
 }
