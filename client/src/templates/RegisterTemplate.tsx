@@ -4,8 +4,8 @@ import { InputComp } from '../components/FormsComp/InputComp'
 import { useForm } from 'react-hook-form'
 import { SubmitComp } from '../components/FormsComp/SubmitComp'
 import { useAuthHook } from '../hook/AuthHook'
-import { ModalMessage } from '../components/FormsComp/ModalMessage'
-import { LoadRotate } from '../components/Othres/LoadRotate'
+import { ModalMessage } from '../components/OthersComponents/ModalMessage'
+import { LoadRotate } from '../components/OthersComponents/LoadRotate'
 import { RegisterData } from '../interfaces/auth/ResisterData'
 
 

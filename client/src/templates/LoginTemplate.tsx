@@ -4,8 +4,8 @@ import { FormComp } from '../components/FormsComp/FormComp'
 import { InputComp } from '../components/FormsComp/InputComp'
 import { SubmitComp } from '../components/FormsComp/SubmitComp'
 import { useAuthHook } from '../hook/AuthHook'
-import { ModalMessage } from '../components/FormsComp/ModalMessage'
-import { LoadRotate } from '../components/Othres/LoadRotate'
+import { ModalMessage } from '../components/OthersComponents/ModalMessage'
+import { LoadRotate } from '../components/OthersComponents/LoadRotate'
 import { LoginData } from '../interfaces/auth/LoginData'
 
 export const LoginTemplate: React.FC = () => {
@@ -68,7 +68,7 @@ export const LoginTemplate: React.FC = () => {
                 typeMessage={response}
             />
             <LoadRotate 
-                showLoad={showLoad}
+                showLoad={showLoad} styles='absolute'
             />
         </FormComp>
     )
