@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { SpanMessageError } from '../FormsComp/SpanMessageError'
+import { SpanMessageError } from '../OthersComponents/SpanMessageError'
 import { TextareaProps } from '../../interfaces/tasks/TextareaProps'
 import { ResponseData } from '../../interfaces/context/ResponseData'
 import { HandlerMessageErrors } from '../../utils/HandlerMessageErrors'
