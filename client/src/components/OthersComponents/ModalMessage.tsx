@@ -27,7 +27,7 @@ export const ModalMessage: React.FC<MessageProps> = ({
             const finallyMessage = setTimeout(()=>{
                 setIsRegisted(false)
                 setHidden(false)
-            }, 5000)
+            }, 4000)
             return ()=> clearTimeout(finallyMessage)
         }
     }, [typeMessage])
@@ -38,7 +38,7 @@ export const ModalMessage: React.FC<MessageProps> = ({
                 (
                     <div className={
                         `${isRegisted ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}
-                        ${styles} text-blue-700 font-bold fixed p-4 rounded-lg text-lg right-10 bottom-10 max-w-64 text-center`
+                        ${styles} text-blue-700 font-bold fixed p-4 z-50 rounded-lg text-lg right-10 bottom-10 max-w-64 text-center`
                     }>
                         {messageModal.error_message || messageModal.success_message}
                     </div>
