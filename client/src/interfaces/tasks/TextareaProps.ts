@@ -6,5 +6,6 @@ export interface TextareaProps{
     register: UseFormRegister<any>,
     errForm?: string | undefined,
     validate?: any,
-    styles?: string
+    styles?: string,
+    resError?: any
 }

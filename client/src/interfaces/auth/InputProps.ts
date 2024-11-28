@@ -1,5 +1,5 @@
+import { ResponseData } from './../context/ResponseData';
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
-import { ResponseData } from "../../context/AuthContext";
 
 export interface InputProps {
     styleInput?: string,

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { ResponseData } from '../../interfaces/context/ResponseData'
-import { MessageProps } from '../../interfaces/auth/MessageProps'
+import { MessageProps } from '../../interfaces/others/MessageProps'
 
 export const ModalMessage: React.FC<MessageProps> = ({
-    typeMessage
+    typeMessage, styles
 }) => {
     const [ messageModal, setMessageModal ] = useState<ResponseData>({})
     const [ isRegisted, setIsRegisted ] = useState<boolean>(false)
@@ -38,7 +38,7 @@ export const ModalMessage: React.FC<MessageProps> = ({
                 (
                     <div className={
                         `${isRegisted ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}
-                        text-blue-700 font-bold absolute p-4 rounded-lg text-lg right-10 bottom-10 max-w-64 text-center`
+                        ${styles} text-blue-700 font-bold fixed p-4 rounded-lg text-lg right-10 bottom-10 max-w-64 text-center`
                     }>
                         {messageModal.error_message || messageModal.success_message}
                     </div>

@@ -2,32 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { SpanMessageError } from './SpanMessageError'
 import { InputProps } from '../../interfaces/auth/InputProps'
 import { ResponseData } from '../../interfaces/context/ResponseData'
+import { HandlerMessageErrors } from '../../utils/HandlerMessageErrors'
 
 export const InputComp: React.FC<InputProps> = ({
     styleLabel, styleInput, label, type, name, autocomplete, register, validate, errForm, errRes
 }) => {
     const [ showError, setShowError ] = useState<ResponseData>({})
-
     useEffect(()=>{
-        if(errRes?.origin === 'client'){
-            setShowError({
-                message: errRes.message,
-                field: errRes.field
-            })
-        }
-        if(errRes?.origin === 'server'){
-            setShowError({
-                message: errRes.message,
-                field: errRes.field
-            })
-        }
-        if(errRes?.origin){
-            const finallyMessage = setTimeout(()=>{
-                setShowError({})
-            }, 5000)
-            return () => clearTimeout(finallyMessage)
-        }
+        HandlerMessageErrors(errRes, setShowError)
     }, [errRes])
+    
     return (
         <>
             <div className='flex flex-col gap-1 p-1 pb-4'>
