@@ -12,42 +12,33 @@ export const GetTasks = async () => {
         const response = await apiTasks.get('/tasks');
         return response.data
     } catch(err){
-        const response = AxiosErrors(err)
-        console.log(response)
-        return response
+        return AxiosErrors(err)
     }
 };
 
 export const CreateTask = async (data: TaskData) =>{
     try{
         const response = await apiTasks.post('/tasks', data)
-        console.log(response.data)
         return response.data
     } catch(err){
-        const response = AxiosErrors(err)
-        return response
+        return AxiosErrors(err)
     }
 };
 
 export const UpdateTask = async (id: string, data: any) =>{
     try{
         const response = await apiTasks.put(`/tasks/${id}`, data)
-        console.log(response.data)
         return response.data
     } catch(err){
-        const response = AxiosErrors(err)
-        console.log(response)
-        return response
+        return AxiosErrors(err)
     }
 };
 
 export const DeleteTask = async (id: string) =>{
     try{
         const response = await apiTasks.delete(`/tasks/${id}`)
-        console.log(response.data)
         return response.data
     } catch(err){
-        const response = AxiosErrors(err)
-        return response
+        return AxiosErrors(err)
     }
 };

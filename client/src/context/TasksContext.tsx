@@ -3,6 +3,7 @@ import { CreateTask, DeleteTask, GetTasks, UpdateTask } from "../api/TasksApi";
 import { TaskData } from "../interfaces/tasks/TaskData";
 import { TasksContextValues } from "../interfaces/context/TasksContextValues";
 import { TasksProviderProps } from "../interfaces/context/TasksPropviderProps";
+import { ShowResponse } from "../interfaces/tasks/ShowResponse";
 
 export const myTasksContext = createContext<TasksContextValues>({});
 
@@ -10,7 +11,7 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({children}) =>{
     const [ responseDataTasks, setResponseDataTasks ] = useState()
     const [ newNote, setNewNote ] = useState<boolean>(false)
     const [ removedNote, setRemovedNote ] = useState<boolean>(false)
-    
+    const [ response, setResponse ] = useState<ShowResponse>({})
     const [ username, setUsername ] = useState<string | undefined>()
     
     const loadTasks = async () => { 
@@ -22,18 +23,19 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({children}) =>{
     const insertTask = async (data: TaskData) => {
         const response = await CreateTask(data)
         if(response.success) setNewNote(true)
+        setResponse(response)
         return response
     }
     
     const eraseTask = async (id: string) => { 
         const response = await DeleteTask(id)
         if(response.success) setRemovedNote(true)
+        setResponse(response)
         return response
     }
     
     const editTask = async (id: string, data: TaskData) => { 
         const response = await UpdateTask(id, data)
-        console.log(response)
         return response
     }
 
@@ -62,6 +64,7 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({children}) =>{
                 username,
                 newNote,
                 setNewNote,
+                response,
             }}
         >
             {children}
