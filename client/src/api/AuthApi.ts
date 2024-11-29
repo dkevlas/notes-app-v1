@@ -1,7 +1,7 @@
+import { LoginData } from './../interfaces/auth/LoginData';
+import { RegisterData } from './../interfaces/auth/ResisterData';
 import axios, { AxiosInstance } from "axios";
-import { RegisterData } from "../templates/RegisterTemplate";
 import { AxiosErrors } from "../utils/AxiosError";
-import { LoginData } from "../templates/LoginTemplate";
 
 const apiAuth: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
