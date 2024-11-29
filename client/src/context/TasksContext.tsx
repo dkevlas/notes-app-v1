@@ -4,11 +4,14 @@ import { TaskData } from "../interfaces/tasks/TaskData";
 import { TasksContextValues } from "../interfaces/context/TasksContextValues";
 import { TasksProviderProps } from "../interfaces/context/TasksPropviderProps";
 import { ShowResponse } from "../interfaces/tasks/ShowResponse";
+import { ResponseData } from "../interfaces/context/ResponseData";
+import { useLocation } from "react-router-dom";
 
 export const myTasksContext = createContext<TasksContextValues>({});
 
 export const TasksProvider: React.FC<TasksProviderProps> = ({children}) =>{
-    const [ responseDataTasks, setResponseDataTasks ] = useState()
+    const location = useLocation()
+    const [ responseDataTasks, setResponseDataTasks ] = useState<ResponseData>()
     const [ newNote, setNewNote ] = useState<boolean>(false)
     const [ removedNote, setRemovedNote ] = useState<boolean>(false)
     const [ response, setResponse ] = useState<ShowResponse>({})
@@ -40,8 +43,10 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({children}) =>{
     }
 
     useEffect(()=>{
-        loadTasks()
-    }, [])
+        if(location.pathname === '/perfil' && !responseDataTasks){
+            loadTasks()
+        }
+    }, [location.pathname, responseDataTasks ])
 
     useEffect(()=>{
         if(newNote === true){

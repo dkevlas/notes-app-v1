@@ -3,9 +3,7 @@ import { Auth } from '../pages/Auth'
 import React from 'react'
 import { NotFound } from '../pages/NotFound'
 import { AuthProvider } from '../context/AuthContext'
-
-export const AuthRoutes: React.FC = () => {
-
+const AuthRoutes: React.FC = () => {
     return (
         <AuthProvider>
             <Routes>
@@ -22,3 +20,5 @@ export const AuthRoutes: React.FC = () => {
         </AuthProvider>
     )
 }
+
+export default AuthRoutes

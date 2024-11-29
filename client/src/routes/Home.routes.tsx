@@ -5,7 +5,7 @@ import { Home } from '../pages/Home'
 import { Navbar } from '../components/Menu/Navbar'
 import { NotFound } from '../pages/NotFound'
 
-export const HomeRoutes: React.FC = () => {
+const HomeRoutes: React.FC = () => {
     return (
         <TasksProvider >
             <Routes>
@@ -17,3 +17,5 @@ export const HomeRoutes: React.FC = () => {
         </TasksProvider>
     )
 };
+
+export default HomeRoutes; 
