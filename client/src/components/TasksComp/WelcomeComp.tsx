@@ -11,10 +11,10 @@ export const WelcomeComp: React.FC<WelcomeProps> = ({
                     className={
                         `${user? 'visible' : 'invisible'}
                         ${styles}
-                        text-3xl font-bold text-slate-400`
+                        text-3xl font-semibold text-slate-400`
                     }
                 >
-                    ¡Bienvenido, {user}!
+                    ¡Bienvenido, <span className='font-bold text-slate-300'>{user}!</span>
                 </h2>
                 <p
                     className='text-2xl font-semibold text-slate-500'

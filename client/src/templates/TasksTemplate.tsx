@@ -56,7 +56,7 @@ export const TasksTemplate: React.FC = () => {
     }
 
     return (
-        <section className='min-w-72 max-w-screen-2xl m-auto px-4'>
+        <section className='min-w-72 max-w-screen-2xl m-auto px-4 mt-16'>
             <div>
                 <WelcomeComp user={username} />
             </div>

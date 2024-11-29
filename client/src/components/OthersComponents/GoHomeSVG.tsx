@@ -1,0 +1,15 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
+export const GoHomeSVG: React.FC = () => {
+    const navigate = useNavigate()
+    const click = () =>{
+        navigate('/')
+    }
+    return (
+        <div onClick={click}
+            className='fixed bottom-8 right-8 cursor-pointer active:scale-95'>
+            <svg className='hover:fill-slate-500' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+        </div>
+    )
+}

@@ -26,7 +26,7 @@ export const AddNoteComp: React.FC = () => {
 
     return (
         <FormComp
-            stylesForm='p-4'
+            stylesForm='p-4 bg-slate-900 rounded-md'
             handleSubmit={handleSubmit}
             submit={submit}
         >
@@ -39,7 +39,7 @@ export const AddNoteComp: React.FC = () => {
                 validate={{
                     required: 'El título es necesario',
                     pattern: {
-                        value: /^(?!\s*$)[\w\s,.\-!?;:'"()&%$#@¡¿¡¨*+~\[\]{}|\\^_`<>¬ºªñÑ]+$/,
+                        value: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s,.\-!?;:'"()&%$#@¡¿¡¨*+~\[\]{}|\\^_`<>¬ºªñÑ]*(\r?\n[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s,.\-!?;:'"()&%$#@¡¿¡¨*+~\[\]{}|\\^_`<>¬ºªñÑ]*)*$/,
                         message: 'No puede contener solo espacios.'
                     }
                 }}

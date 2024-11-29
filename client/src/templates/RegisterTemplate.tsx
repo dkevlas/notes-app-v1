@@ -92,7 +92,7 @@ export const RegisterTemplate: React.FC = () => {
                 typeMessage={response}
             />
             <LoadRotate 
-                showLoad={showLoad}
+                showLoad={showLoad} styles='absolute'
             />
         </FormComp>
     )
