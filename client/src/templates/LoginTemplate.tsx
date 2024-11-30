@@ -11,16 +11,14 @@ import { LoginData } from '../interfaces/auth/LoginData'
 export const LoginTemplate: React.FC = () => {
 
     const { register, handleSubmit, formState: {errors, isValid} } = useForm<LoginData>({mode: 'onChange'})
-    const { response, sendApiLogin, saveToken } = useAuthHook()
+    const { response, sendApiLogin } = useAuthHook()
     const [ showLoad, setShowLoad ] = useState<boolean | undefined>(undefined)
     const submit = async (data: LoginData) =>{
         setShowLoad(true)
         await sendApiLogin?.(data)
     }
+
     useEffect(()=>{
-        if(response?.token){
-            saveToken?.(response.token)
-        }
         setShowLoad(false)
     }, [response])
     return (

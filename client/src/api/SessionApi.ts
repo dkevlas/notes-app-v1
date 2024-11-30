@@ -7,9 +7,9 @@ const apiSesion: AxiosInstance = axios.create({
     withCredentials: true
 });
 
-export const LogoutApi = async (token: string) =>{
+export const LogoutApi = async () =>{
     try{
-        const response = await apiSesion.post('/session/logout', token)
+        const response = await apiSesion.get('/session/logout')
         return response.data
     } catch(err){
         return AxiosErrors(err)

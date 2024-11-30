@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { LogoutApi } from '../../api/SessionApi'
 const Logout: React.FC = () => {
@@ -8,10 +8,12 @@ const Logout: React.FC = () => {
     const navigate = useNavigate()
     const actionClick = async () =>{
         if(location.pathname === '/perfil'){
-            const token = Cookies.get('token');
-            if(token) await LogoutApi(token)
+            // const token = Cookies.get('token');
+            // if(token) await LogoutApi(token)
+            const res = await LogoutApi()
+            console.log(res)
             navigate('/')
-            Cookies.remove('token')
+            // Cookies.remove('token')
         }
         if(location.pathname === '/'){
             navigate('/perfil')

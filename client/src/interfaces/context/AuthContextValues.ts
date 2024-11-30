@@ -1,5 +1,6 @@
 import { LoginData } from "../auth/LoginData";
 import { RegisterData } from "../auth/ResisterData";
+import { VerifyTokenData } from "../auth/VerifyToken";
 import { ResponseData } from "./ResponseData";
 
 export interface AuthContextValues {
@@ -7,7 +8,6 @@ export interface AuthContextValues {
     setResponse?: React.Dispatch<React.SetStateAction<ResponseData | undefined>>,
     sendApiRegister?: ((data: RegisterData) => Promise<void> | undefined) | undefined,
     sendApiLogin?: ((data: LoginData) => Promise<void> | undefined) | undefined,
-    isAuthenticated?: boolean,
     loading?: boolean,
-    saveToken?: (token: string) => void
+    tokenStatus?: VerifyTokenData | null,
 };

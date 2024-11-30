@@ -5,9 +5,12 @@ import { config } from "../config.js";
 class Session {
     async logout(req, res){
         try{
+            const { token } = req.cookies
+            console.log(token)
             res.clearCookie('token', {
+                secure: true,
                 httpOnly: true,
-                sameSite: 'Strict',
+                sameSite: 'none',
             })
             res.json({
                 success: true,
@@ -30,6 +33,7 @@ class Session {
             if(!decoded){
                 res.clearCookie('token')
                 res.status(402).json({
+                    success: false,
                     error: "Usuario no válido"
                 })
             }

@@ -16,12 +16,11 @@ import SessionRoutes from './routes/Session.routes.js';
 import { notFound } from './middlewares/notFound.js';
 
 const app = express();
-
+console.log(config.URL_FRONTEND)
 app.use(cors({
     credentials: true,
     origin: config.URL_FRONTEND,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    
 }));
 app.use(cookieParser());
 app.use(json());

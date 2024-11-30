@@ -4,6 +4,7 @@ dotenv.config();
 export const config = {
     PORT: process.env.PORT || 3005,
     HOST: process.env.HOST || '0.0.0.0',
+    // HOST: process.env.HOST || 'http://localhost:5173',
     MONGO_URI: process.env.MONGO_URI,
     TOKEN_SECRET: process.env.TOKEN_SECRET,
     URL_FRONTEND: process.env.URL_FRONTEND,

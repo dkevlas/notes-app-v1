@@ -1,28 +1,20 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAuthHook } from '../hook/AuthHook'
 import { Navigate } from 'react-router-dom';
 import { LoadRotate } from '../components/OthersComponents/LoadRotate';
 import { TasksTemplate } from '../templates/TasksTemplate';
 import { useTasksHook } from '../hook/TasksHook';
 import { ModalMessage } from '../components/OthersComponents/ModalMessage';
-import { VerifyToken } from '../api/SessionApi';
-import Cookies from 'js-cookie';
 
 export const Profile: React.FC = () => {
-    const { isAuthenticated, loading } = useAuthHook();
+    const { loading, tokenStatus } = useAuthHook();
     const { responseDataTasks } = useTasksHook();
-    const verifyToken = async () =>{
-        const res = await VerifyToken()
-        if(!res?.success) Cookies.remove('token')
-    }
-    useEffect(()=>{
-        verifyToken()
-    }, [])
+
     if(loading){
-        return (<LoadRotate styles='bottom-1/2 absolute' showLoad={!isAuthenticated} />)
+        return (<LoadRotate styles='bottom-1/2 absolute' showLoad={!tokenStatus?.success} />)
     }
-    if(isAuthenticated){
-        if(isAuthenticated && responseDataTasks){
+    if(tokenStatus?.success){
+        if(tokenStatus.success && responseDataTasks){
             return (
                 <>
                     <TasksTemplate />
