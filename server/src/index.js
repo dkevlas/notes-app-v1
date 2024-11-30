@@ -4,6 +4,8 @@ import { connectDB } from './database/database.js';
 
 connectDB()
 
-app.listen(config.PORT, config.HOST, ()=>{
+const PORT = config.PORT;
+const HOST = config.HOST;
+app.listen(PORT, HOST, ()=>{
     console.log(`Server this running succes http://${config.HOST}:${config.PORT}`)
 });
