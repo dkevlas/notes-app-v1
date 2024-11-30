@@ -21,14 +21,15 @@ class Session {
         }
     }
     async verifyToken(req, res){
-        const { token } = req.cookies
-        if (!token) {
-            return res.status(401).json({
-                success: false,
-                message: 'Token nulo'
-            })
-        }
+        // const { token } = req.cookies
+        // if (!token) {
+        //     return res.status(401).json({
+        //         success: false,
+        //         message: 'Token nulo'
+        //     })
+        // }
         try{
+            const { token } = req.cookies
             const decoded = jwt.verify(token, config.TOKEN_SECRET)
             if(!decoded){
                 res.clearCookie('token')
