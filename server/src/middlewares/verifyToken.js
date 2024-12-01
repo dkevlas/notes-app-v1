@@ -6,6 +6,7 @@ export const verifyToken = (req, res, next) =>{
     console.log('token recibido: ', token)
     if(!token){
         console.log('Lisa')
+        console.log('token recibido: ', token)
         return res.status(401).json({
             success: false,
             error_type: "token_error",
