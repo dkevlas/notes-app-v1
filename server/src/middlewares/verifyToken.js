@@ -3,6 +3,7 @@ import { config } from '../config.js';
 
 export const verifyToken = (req, res, next) =>{
     const { token } = req.cookies
+    console.log('token recibido: ', token)
     if(!token){
         console.log('Lisa')
         return res.status(401).json({
